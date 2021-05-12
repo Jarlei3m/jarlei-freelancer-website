@@ -41,12 +41,10 @@ export function Projects() {
           onMouseLeave={() => handleMouseLeaveImageAttribute('moveit.png')}
         />
         <nav>
-          <Link href='/'>
-            <a>
-              <FaEye />
-              Website
-            </a>
-          </Link>
+          <a>
+            <FaEye />
+            Website
+          </a>
           <a href='https://github.com/Jarlei3m' target='_blank'>
             <FaGithub />
             GitHub

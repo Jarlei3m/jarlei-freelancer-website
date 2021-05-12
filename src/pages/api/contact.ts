@@ -23,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       });
 
       const mailData: MailDataProps = {
-        from: 'jarlei.developer@gmail.com',
+        from: process.env.DEV_EMAIL,
         to: 'jarlei_rodrigues@outlook.com',
         subject: `Message From ${req.body.name}`,
         text: req.body.message,
