@@ -17,25 +17,29 @@ export function Form() {
       message,
     };
 
-    await fetch('api/contact', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(contactInfo),
-    }).then((res) => {
-      console.log('response received');
+    try {
+      await fetch('api/contact', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactInfo),
+      }).then((res) => {
+        console.log('response received');
 
-      if (res.status === 200) {
-        console.log('Response succeeded!');
-        toast.success('Message sent successfully.');
-        setName('');
-        setEmail('');
-        setPhone('');
-        setMessage('');
-      }
-    });
+        if (res.status === 200) {
+          console.log('Response succeeded!');
+          toast.success('Message sent successfully.');
+          setName('');
+          setEmail('');
+          setPhone('');
+          setMessage('');
+        }
+      });
+    } catch (error) {
+      console.log('ERROR:', error);
+    }
   }
 
   return (

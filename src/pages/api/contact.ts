@@ -9,8 +9,13 @@ interface MailDataProps {
   html: string;
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'POST') {
+export default function (req: NextApiRequest, res: NextApiResponse) {
+  console.log('my email:', process.env.DEV_EMAIL);
+  if (
+    req.method === 'POST' &&
+    process.env.DEV_EMAIL &&
+    process.env.DEV_PASSWORD
+  ) {
     try {
       const transporter = nodemailer.createTransport({
         port: 465,
@@ -30,7 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         html: `
           <div>
             <h1>Contact User Info</h1>
-            <p> <strong>User</strong>: ${req.body.message}</p>
+            <p> <strong>Client</strong>: ${req.body.name}</p>
             <p><strong>Email</strong>: ${req.body.email}</p>
             <p><strong>Phone Number</strong>: ${req.body.phone}</p>
             <p><strong>Message</strong>: ${req.body.message}</p>
@@ -53,4 +58,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405);
     res.end();
   }
-};
+}
