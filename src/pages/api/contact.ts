@@ -18,8 +18,9 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
   ) {
     try {
       const transporter = nodemailer.createTransport({
-        port: 465,
-        host: 'smtp.gmail.com',
+        // port: 465,
+        // host: 'smtp.gmail.com',
+        service: 'Outlook365',
         auth: {
           user: process.env.DEV_EMAIL,
           pass: process.env.DEV_PASSWORD,
