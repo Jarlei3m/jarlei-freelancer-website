@@ -106,11 +106,22 @@ a {
     right: 0;
     left: unset;
     width: 18vw;
+
+    @media(max-width: 425px) {
+      width: 50vw;
+    }
   }
+
 
   .Toastify__toast {
     background-color: var(--green);
-    min-height: 45px;
+    min-height: 2.8125rem;
+
+     @media(max-width: 425px) {
+      margin: 1rem .5rem;
+
+      border-radius: 4px;
+    }
   }
 
 `;
