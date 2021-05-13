@@ -13,6 +13,8 @@ export const Content = styled.nav`
 
     li {
       font-size: 2.2rem;
+      color: var(--white);
+
       transition: color 0.2s ease-in-out;
 
       :hover {

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
 
-import { Footer } from '../components/About/Footer';
+import { Footer } from '../components/Contact/Footer';
 import { Info } from '../components/Contact/Info';
 import { Map } from '../components/Contact/Map';
 // import { Header } from '../components/Home/Header';
@@ -22,8 +22,8 @@ export default function Home() {
         <Content>
           <Map />
           <Info />
-          <Footer />
         </Content>
+        <Footer />
       </Container>
     </div>
   );

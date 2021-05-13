@@ -7,9 +7,11 @@ export function Form() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    setIsLoading(true);
     const contactInfo = {
       name,
       email,
@@ -31,6 +33,7 @@ export function Form() {
         if (res.status === 200) {
           console.log('Response succeeded!');
           toast.success('Message sent successfully.');
+          setIsLoading(false);
           setName('');
           setEmail('');
           setPhone('');
@@ -53,7 +56,7 @@ export function Form() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <span>Nome</span>
+        <span>Name</span>
       </div>
 
       <div>
@@ -69,7 +72,9 @@ export function Form() {
       <div>
         <input
           required
-          type='text'
+          type='tel'
+          pattern='[0-9]{2}[0-9]{5}[0-9]{4}'
+          placeholder='Ex.: 24992035033'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
@@ -86,7 +91,9 @@ export function Form() {
       </div>
 
       <div>
-        <button type='submit'>SEND MESSAGE</button>
+        <button type='submit' disabled={!!isLoading}>
+          {isLoading ? 'Sending...' : 'SEND MESSAGE'}
+        </button>
       </div>
     </FormContainer>
   );

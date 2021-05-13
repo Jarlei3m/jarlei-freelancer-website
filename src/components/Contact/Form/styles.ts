@@ -5,16 +5,26 @@ export const FormContainer = styled.form`
   flex-direction: column;
   gap: 3rem;
 
-  width: 420px;
-  height: 660px;
+  width: 26.25rem;
+  height: 41.25rem;
   background: var(--white);
   /* border: 1px solid #000; */
   border-radius: 12px;
 
   padding: 2rem 3rem 3rem;
-  margin-bottom: -50px;
+  margin-bottom: -3.125rem;
 
   z-index: 5;
+
+  @media (max-width: 768px) {
+    width: 24.25rem;
+    padding: 2rem;
+  }
+
+  @media (max-width: 320px) {
+    width: 20.25rem;
+    padding: 1.5rem;
+  }
 
   h3 {
     color: var(--green);
@@ -22,7 +32,7 @@ export const FormContainer = styled.form`
     font-weight: 500;
     letter-spacing: 1px;
 
-    margin-bottom: 2rem;
+    margin-bottom: 0.0625rem;
   }
 
   div {
@@ -42,10 +52,22 @@ export const FormContainer = styled.form`
       font-weight: 500;
 
       border: none;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 0.125rem solid #ccc;
       outline: none;
 
+      &::placeholder {
+        transition: color 0.2s ease-out;
+        color: transparent;
+      }
+
       padding: 0.3rem;
+
+      &:focus,
+      &:valid {
+        &::placeholder {
+          color: var(--gray-300);
+        }
+      }
 
       &:focus + span,
       &:valid + span {
@@ -91,6 +113,14 @@ export const FormContainer = styled.form`
 
         margin-right: -4rem;
 
+        @media (max-width: 768px) {
+          margin-right: -3rem;
+        }
+
+        @media (max-width: 320px) {
+          margin-right: -2.5rem;
+        }
+
         color: var(--white);
         font-size: 0.8rem;
         font-weight: 500;
@@ -105,6 +135,10 @@ export const FormContainer = styled.form`
 
         &:hover {
           color: var(--green);
+        }
+
+        &:disabled {
+          cursor: not-allowed;
         }
       }
     }

@@ -28,4 +28,12 @@ export const Content = styled.section`
   padding: 0 4rem;
   margin-bottom: 8rem;
   width: 100%;
+
+  @media (max-width: 425px) {
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0 1.5rem;
+  }
 `;

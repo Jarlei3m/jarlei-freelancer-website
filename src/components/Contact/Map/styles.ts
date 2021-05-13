@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 560px;
+  height: 35rem;
   width: 100%;
   position: relative;
 
@@ -10,6 +10,10 @@ export const Container = styled.div`
   background-position: center;
 
   margin-top: 5.5rem;
+
+  @media (max-width: 768px) {
+    margin-top: 7.2rem;
+  }
 
   ::after {
     content: '';
@@ -27,7 +31,8 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  max-width: 1240px;
+  max-width: 90rem;
+  padding: 0 4.5rem;
   width: 100%;
   margin: 0 auto;
 
@@ -36,6 +41,16 @@ export const Content = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+
+  @media (max-width: 425px) {
+    padding: 0 2rem;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h1 {
+      align-self: baseline;
+    }
+  }
 
   h1 {
     font-size: 3rem;

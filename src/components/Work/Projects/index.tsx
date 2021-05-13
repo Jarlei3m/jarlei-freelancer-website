@@ -131,6 +131,46 @@ export function Projects() {
           </a>
         </nav>
       </Card>
+
+      <Card>
+        <div>
+          <span>
+            <IoDesktop
+              className={gifVersion === 'desktop' ? 'active' : ''}
+              onClick={() => setGifVersion('desktop')}
+            />
+          </span>
+          <span>
+            <AiTwotoneMobile
+              className={gifVersion === 'mobile' ? 'active' : ''}
+              onClick={() => setGifVersion('mobile')}
+            />
+          </span>
+        </div>
+        <img
+          className={image === 'wlassalivros_mobile.gif' && 'mobile'}
+          src={
+            image === 'wlassalivros_desktop.gif'
+              ? `${image}`
+              : image === 'wlassalivros_mobile.gif'
+              ? `${image}`
+              : `wlassalivros_desktop.png`
+          }
+          alt='wilson lassarote livros'
+          onMouseOver={() => handleMouseOverImageAttribute('wlassalivros')}
+          onMouseLeave={() => handleMouseLeaveImageAttribute('wlassalivros')}
+        />
+        <nav>
+          <a href='https://wilson-next-jarlei3m.vercel.app/' target='_blank'>
+            <FaEye />
+            Website
+          </a>
+          <a href='https://github.com/Jarlei3m' target='_blank'>
+            <FaGithub />
+            GitHub
+          </a>
+        </nav>
+      </Card>
     </ProjectContainer>
   );
 }

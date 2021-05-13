@@ -1,16 +1,26 @@
 import styled from 'styled-components';
 
 export const ProjectContainer = styled.section`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  row-gap: 2rem;
+  column-gap: 1rem;
 
   margin: 3.1rem 0;
+
+  @media (max-width: 1000px) {
+    justify-content: center;
+  }
 `;
 
 export const Card = styled.div`
   position: relative;
-
+  width: 31rem;
+  /* width: 100%; */
+  /* height: 22.93rem; */
+  height: auto;
   overflow: hidden;
 
   &:hover {
@@ -74,14 +84,19 @@ export const Card = styled.div`
 
   img {
     display: block;
+    max-width: 31rem;
     width: 100%;
-    height: 17.5rem;
+    height: auto;
 
     border: 3px solid #ccc;
     transition: all 0.2s ease-out;
 
     object-fit: cover;
     object-position: center;
+
+    @media (max-width: 320px) {
+      border: 2px solid #ccc;
+    }
 
     &:hover {
       border-color: var(--green);

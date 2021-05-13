@@ -26,21 +26,54 @@ export const NavBars = styled.nav`
 
   &.open {
     transform: rotate(180deg);
-    /* transform: translateX(-20rem); */
 
     div:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
-      /* transform: translateX(-0rem); */
     }
 
     div:nth-child(2) {
       opacity: 0;
-      /* transform: translateX(0.2rem); */
     }
 
     div:nth-child(3) {
       transform: rotate(-45deg) translate(6px, -6px);
-      /* transform: translateX(0.4rem); */
+      }
+    }
+  }
+
+  @media (max-width: 1080px) {
+    &.open {
+      transform: rotate(180deg);
+
+      div:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 6px);
+      }
+
+      div:nth-child(2) {
+        opacity: 0;
+      }
+
+      div:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -6px);
+      }
+    }
+  }
+
+  @media (max-width: 425px) {
+    &.open {
+      transform: rotate(180deg);
+
+      div:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 6px);
+      }
+
+      div:nth-child(2) {
+        opacity: 0;
+      }
+
+      div:nth-child(3) {
+        transform: rotate(-45deg) translate(3px, -5px);
+      }
     }
   }
 `;
@@ -57,11 +90,21 @@ export const NavMenu = styled.nav`
     visibility: visible;
   }
 
+  @media (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
   div {
     background: var(--gray-400);
 
     transform: translate3d(0, 100%, 0);
     transition: all 0.5s ease-out;
+
+    @media (max-width: 425px) {
+      transform: translate3d(-100%, 0, 0);
+    }
 
     img {
       width: 15rem;
@@ -94,6 +137,14 @@ export const NavMenu = styled.nav`
     overflow: hidden;
   }
 
+  @media (max-width: 425px) {
+    div,
+    ul {
+      width: 100vw;
+      height: 50%;
+    }
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -101,6 +152,10 @@ export const NavMenu = styled.nav`
 
     transform: translate3d(0, -100%, 0);
     transition: all 0.5s ease-out;
+
+    @media (max-width: 425px) {
+      transform: translate3d(100%, 0, 0);
+    }
 
     &.open {
       transform: translate3d(0, 0, 0);

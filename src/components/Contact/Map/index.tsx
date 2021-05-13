@@ -10,33 +10,6 @@ export function Map() {
         </h1>
 
         <Form />
-        {/* <form action=''>
-          <h3>Get In Touch!</h3>
-
-          <div>
-            <input required type='text' />
-            <span>Nome</span>
-          </div>
-
-          <div>
-            <input required type='email' />
-            <span>Email</span>
-          </div>
-
-          <div>
-            <input required type='text' />
-            <span>Phone</span>
-          </div>
-
-          <div>
-            <textarea required></textarea>
-            <span>Message</span>
-          </div>
-
-          <div>
-            <button>SEND MESSAGE</button>
-          </div>
-        </form> */}
       </Content>
     </Container>
   );

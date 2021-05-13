@@ -20,8 +20,8 @@ export default function About() {
           <Subtitle />
           <Bio />
           <Cards />
-          <Footer />
         </Content>
+        <Footer />
       </Container>
     </div>
   );
