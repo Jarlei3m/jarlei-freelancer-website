@@ -19,7 +19,7 @@ export const FooterContainer = styled.footer`
 
   @media (max-width: 425px) {
     position: absolute;
-    bottom: -3.2rem;
+    bottom: -2.2rem;
   }
 
   span {

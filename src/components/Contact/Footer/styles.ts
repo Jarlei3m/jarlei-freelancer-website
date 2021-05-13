@@ -17,6 +17,11 @@ export const FooterContainer = styled.footer`
 
   border-top: 0.125rem solid var(--green);
 
+  @media (max-width: 425px) {
+    position: absolute;
+    bottom: -2.2rem;
+  }
+
   span {
     font-size: 0.8rem;
     color: var(--white);
