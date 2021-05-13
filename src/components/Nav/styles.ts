@@ -141,7 +141,13 @@ export const NavMenu = styled.nav`
     div,
     ul {
       width: 100vw;
-      height: 50%;
+    }
+
+    div {
+      height: 40%;
+    }
+    ul {
+      height: 60%;
     }
   }
 
