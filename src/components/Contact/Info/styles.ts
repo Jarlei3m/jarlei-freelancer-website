@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const InfoContainer = styled.section`
-  margin-top: 3.8rem;
+  margin: 3.8rem 0;
 
   @media (max-width: 425px) {
-    margin-top: 8rem;
+    margin: 8rem 0 3.8rem;
   }
 
   @media (max-width: 375px) {
-    margin-top: 9rem;
+    margin: 9rem 0 3.8rem;
   }
 `;
 
