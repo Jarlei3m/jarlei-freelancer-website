@@ -15,13 +15,11 @@ export const Container = styled.main`
 
   ::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     background: var(--gray-500);
     /* z-index: -1; */
