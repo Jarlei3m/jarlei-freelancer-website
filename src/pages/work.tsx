@@ -8,11 +8,11 @@ import { BootcampProjects } from '../components/Work/BootcampProjects';
 import { SubtitleProject } from '../components/Work/SubtitleProject';
 import { Container, Content } from '../styles/Pages/Work/style';
 import { SubtitleBootcampProject } from '../components/Work/SubtitleBootcampProject';
-import { Footer } from '../components/About/Footer';
+import { Footer } from '../components/Work/Footer';
 
 export default function Work() {
   return (
-    <div>
+    <>
       <Head>
         <title> Work | Járlei Rodrigues </title>
       </Head>
@@ -26,7 +26,8 @@ export default function Work() {
           <SubtitleBootcampProject />
           <BootcampProjects />
         </Content>
+        <Footer />
       </Container>
-    </div>
+    </>
   );
 }
