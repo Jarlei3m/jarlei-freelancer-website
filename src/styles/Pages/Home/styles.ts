@@ -7,6 +7,8 @@ export const Container = styled.main`
   display: flex;
   align-items: center;
 
+  overflow: hidden;
+
   background-image: url('/background.jpg');
   background-attachment: fixed;
   background-size: cover;
