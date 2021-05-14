@@ -100,11 +100,7 @@ export const Card = styled.div`
 
     &:hover {
       border-color: var(--green);
-    }
-
-    &.mobile {
-      object-fit: scale-down;
-      background: #ccc;
+      filter: brightness(0.8);
     }
   }
 
