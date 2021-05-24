@@ -1,6 +1,6 @@
 import { createContext, FormEvent, ReactNode, useCallback, useState } from "react";
 import { toast } from "react-toastify";
-import { phoneMask, validMail } from "../utils/masks";
+import { phoneMask } from "../utils/masks";
 
 interface ClientProps {
   name: string;
@@ -45,25 +45,28 @@ export function ContactFormProvider({ children }: ContactFormProviderProps) {
   const handleKeyUp = useCallback((e: React.FormEvent<HTMLInputElement>) => {
     
     // Phone number
-    if ( e.currentTarget.name === 'phone' && e.currentTarget.value !== '') {
+    if (e.currentTarget.name === 'phone') {
       phoneMask(e);
-      setIsPhoneValid(true);
-
-      // const phoneFormat = /(\+\d{2}\s)\(\d{2}\)\s\d{5}\-\d{4}/
-      const phoneFormat = /\(\d{2}\)\s\d{4,5}\-\d{4}/
-
-      if (e.currentTarget.value && phoneFormat.test(e.currentTarget.value)) {
+      
+      if (e.currentTarget.value === '') {
         setIsPhoneValid(true);
       } else {
-        setIsPhoneValid(false);
+        const phoneFormat = /\(\d{2}\)\s\d{4,5}\-\d{4}/;
+  
+        phoneFormat.test(e.currentTarget.value) ? setIsPhoneValid(true) : setIsPhoneValid(false);
       }
     }
 
     // Email
-    if (e.currentTarget.name === 'email' && e.currentTarget.value !== '') {
-      setIsEmailValid(true);
+    if (e.currentTarget.name === 'email') {
 
-      validMail(e) ? setIsEmailValid(true) : setIsEmailValid(false);
+      if (e.currentTarget.value === '') {
+        setIsEmailValid(true)
+      } else {
+        const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        emailFormat.test(e.currentTarget.value) ? setIsEmailValid(true) : setIsEmailValid(false);
+      }
     }
 
   }, [client]);

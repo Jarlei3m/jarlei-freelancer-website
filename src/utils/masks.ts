@@ -1,7 +1,7 @@
 import React from "react";
 
 export function phoneMask(e: React.FormEvent<HTMLInputElement>) {
-  // (24) 99203-5033
+  // +55 (24) 99203-5033
   e.currentTarget.maxLength = 11;
   let value = e.currentTarget.value;
 
@@ -11,12 +11,4 @@ export function phoneMask(e: React.FormEvent<HTMLInputElement>) {
 
   e.currentTarget.value = value;
   return e;
-}
-
-export function validMail(e: React.FormEvent<HTMLInputElement>) {
-  let value = e.currentTarget.value;
-
-  if (value.includes('@' && '.com')) {
-    return true
-  }
 }

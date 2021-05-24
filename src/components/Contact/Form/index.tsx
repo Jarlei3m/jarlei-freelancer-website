@@ -53,7 +53,6 @@ export function Form() {
       <div>
         <input
           required
-          value={client.phone ? null : ''}
           name='phone'
           type='text'
           placeholder='(__) _____-____'
