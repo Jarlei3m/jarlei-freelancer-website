@@ -10,7 +10,6 @@ interface MailDataProps {
 }
 
 export default function (req: NextApiRequest, res: NextApiResponse) {
-  console.log('my email:', process.env.DEV_EMAIL);
   if (
     req.method === 'POST' &&
     process.env.DEV_EMAIL &&

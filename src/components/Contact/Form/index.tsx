@@ -1,99 +1,34 @@
-import { FormEvent, useState } from 'react';
+import React, { useContext } from 'react';
+import { ContactFormContext } from '../../../contexts/ContactFormContext';
 import { FormContainer } from './styles';
-import { toast } from 'react-toastify';
 
 export function Form() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const { 
+    client, 
+    handleChange, 
+    handleContactFormSubmit, 
+    handleKeyUp,
+    isLoading,
+    isPhoneValid,
+    isEmailValid
+  } = useContext(ContactFormContext);  
 
-  // const phoneFormat = /^\(?([0-9]{2})\)?[-. ]?([0-9]{5})[-. ]?([0-9]{4})$/;
-
-  function handlePhoneInput(inputValue: string) {
-    const inputNumber = inputValue.replace(/[^\d]/g, '');
-    const currentNumberLength = inputNumber.length;
-
-    if (currentNumberLength < 4) {
-      return setPhone(inputNumber);
-    }
-
-    // return: 'x', 'xx'
-    if (currentNumberLength < 6) {
-      const normalizedNumber = `+${inputNumber.slice(0, 2)} ${inputNumber.slice(
-        2
-      )} `;
-      return setPhone(normalizedNumber);
-    }
-
-    // return: '(xx)', '(xx) x', '(xx) xx', '(xx) xxx', '(xx) xxxx'
-    if (currentNumberLength < 9) {
-      const normalizedNumber = `+${inputNumber.slice(
-        0,
-        2
-      )} (${inputNumber.slice(2, 4)}) ${inputNumber.slice(4)} `;
-      return setPhone(normalizedNumber);
-    }
-
-    // return: '(xx) xxxx-', '(xx) xxxx-x', '(xx) xxxx-xx', '(xx) xxxx-xxx', '(xx) xxxx-xxxx'
-    const normalizeNumberCompleted = `+${inputNumber.slice(
-      0,
-      2
-    )} (${inputNumber.slice(2, 4)}) ${inputNumber.slice(
-      4,
-      9
-    )}-${inputNumber.slice(9, 13)}`;
-    return setPhone(normalizeNumberCompleted);
-  }
-  console.log('tipe: ', typeof phone);
-
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    setIsLoading(true);
-    const contactInfo = {
-      name,
-      email,
-      phone,
-      message,
-    };
-
-    try {
-      await fetch('api/contact', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(contactInfo),
-      }).then((res) => {
-        console.log('response received');
-
-        if (res.status === 200) {
-          console.log('Response succeeded!');
-          toast.success('Message sent successfully.');
-          setIsLoading(false);
-          setName('');
-          setEmail('');
-          setPhone('');
-          setMessage('');
-        }
-      });
-    } catch (error) {
-      console.log('ERROR:', error);
-    }
-  }
-
+  const errors = {
+    clientEmail: 'Por favor, insira um email válido',
+    clientPhone: 'Por favor, insira um telefone válido',
+  };
+  
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <FormContainer onSubmit={handleContactFormSubmit}>
       <h3>Get In Touch!</h3>
 
       <div>
         <input
           required
+          value={client.name ? client.name : ''}
+          name='name'
           type='text'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={handleChange}
         />
         <span>Name</span>
       </div>
@@ -101,37 +36,51 @@ export function Form() {
       <div>
         <input
           required
-          type='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name='email' 
+          value={client.email ? client.email : ''}
+          type='text'
+          onChange={handleChange}
+          onKeyUp={handleKeyUp}
         />
         <span>Email</span>
+        {!isEmailValid && 
+          <small>
+            {errors.clientEmail}
+          </small>
+        }
       </div>
 
       <div>
         <input
           required
-          type='tel'
-          // pattern='([0-9]){2}[0-9]{5}-[0-9]{4}'
-          placeholder='+55 21 9xxxx-xxxx'
-          value={phone}
-          onChange={(e) => handlePhoneInput(e.target.value)}
+          value={client.phone ? null : ''}
+          name='phone'
+          type='text'
+          placeholder='(__) _____-____'
+          onKeyUp={handleKeyUp}
+          onChange={handleChange}
         />
         <span>Phone</span>
+        {!isPhoneValid && 
+          <small>
+            {errors.clientPhone}
+          </small>
+        }
       </div>
 
       <div>
         <textarea
           required
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          value={client.message ? client.message : ''}
+          name='message'
+          onChange={handleChange}
         ></textarea>
         <span>Message</span>
       </div>
 
       <div>
         <button type='submit' disabled={!!isLoading}>
-          {isLoading ? 'Sending...' : 'SEND MESSAGE'}
+          {isLoading ? <img src="loading.gif" alt="loading..." /> : 'SEND MESSAGE'}
         </button>
       </div>
     </FormContainer>

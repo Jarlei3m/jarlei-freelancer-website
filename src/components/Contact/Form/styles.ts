@@ -89,6 +89,15 @@ export const FormContainer = styled.form`
       font-weight: 500;
     }
 
+    small {
+      position: absolute;
+      bottom: -1.2rem;
+      left: .4rem;
+
+      color: #f7283f;
+      font-size: .7rem;
+    }
+
     textarea {
       resize: none;
 
@@ -132,6 +141,11 @@ export const FormContainer = styled.form`
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 
         transition: all 0.2s ease-out;
+
+        img {
+          width: 3rem;
+          margin-left: 1rem;
+        }
 
         &:hover {
           color: var(--green);

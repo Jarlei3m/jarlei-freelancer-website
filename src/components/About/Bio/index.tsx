@@ -1,6 +1,6 @@
 import { Container, ImageContent, BioContent } from './styles';
-import { AiFillHtml5, AiOutlineGithub } from 'react-icons/ai';
-import { FaCss3Alt, FaReact } from 'react-icons/fa';
+import { AiFillHtml5 } from 'react-icons/ai';
+import { FaCss3Alt, FaReact, FaGitAlt } from 'react-icons/fa';
 import {
   SiNextDotJs,
   SiJavascript,
@@ -40,7 +40,7 @@ export function Bio() {
           <SiSass />
           <SiNodeDotJs />
           <SiMongodb />
-          <AiOutlineGithub />
+          <FaGitAlt />
         </p>
       </BioContent>
     </Container>

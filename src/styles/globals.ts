@@ -40,25 +40,6 @@ body {
   height: 100%;
   margin: 0;
 }
-/* 
-@media (max-width: 1080px) {
-  html {
-    font-size: 93.75%;
-  }
-}
-
-@media (max-width: 720px) {
-  html {
-    font-size: 87.5%;
-  }
-}
-
-@media (max-width: 620px) {
-  html {
-    font-size: 81.25%;
-  }
-} */
-
 
 @media (max-width: 1180px) {
   html {
@@ -112,9 +93,11 @@ a {
     }
   }
 
+  .Toastify__toast--sucess {
+    background-color: var(--green);
+  }
 
   .Toastify__toast {
-    background-color: var(--green);
     min-height: 2.8125rem;
 
      @media(max-width: 425px) {
