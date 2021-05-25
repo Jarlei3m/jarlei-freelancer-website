@@ -46,7 +46,7 @@ export function ContactFormProvider({ children }: ContactFormProviderProps) {
     
     // Phone number
     if (e.currentTarget.name === 'phone') {
-      // phoneMask(e);
+      phoneMask(e);
       
       if (e.currentTarget.value === '') {
         setIsPhoneValid(true);
