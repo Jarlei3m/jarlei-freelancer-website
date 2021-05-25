@@ -17,6 +17,8 @@ export function Form() {
     clientEmail: 'Por favor, insira um email válido',
     clientPhone: 'Por favor, insira um telefone válido',
   };
+
+  const phoneFormat = /\(\d{2}\)\s\d{4,5}\-\d{4}/;
   
   return (
     <FormContainer onSubmit={handleContactFormSubmit}>
@@ -53,6 +55,7 @@ export function Form() {
       <div>
         <input
           required
+          value={client.phone ? client.phone.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')  : ''}
           name='phone'
           type='text'
           placeholder='(__) _____-____'

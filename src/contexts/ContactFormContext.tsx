@@ -46,7 +46,7 @@ export function ContactFormProvider({ children }: ContactFormProviderProps) {
     
     // Phone number
     if (e.currentTarget.name === 'phone') {
-      phoneMask(e);
+      // phoneMask(e);
       
       if (e.currentTarget.value === '') {
         setIsPhoneValid(true);
@@ -96,6 +96,7 @@ export function ContactFormProvider({ children }: ContactFormProviderProps) {
             });
             toast.success('Message sent successfully.');
             setIsLoading(false);
+            console.log(client)
           }
         });
       } catch (error) {
