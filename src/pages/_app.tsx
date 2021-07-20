@@ -1,4 +1,3 @@
-import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../styles/globals';
 import { Nav } from '../components/Nav';
 import { ContactFormProvider } from '../contexts/ContactFormContext';

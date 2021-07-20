@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.main`
   height: 100%;
@@ -9,6 +9,8 @@ export const Container = styled.main`
 export const Content = styled.section`
   padding: 4rem;
   /* margin-bottom: 8rem; */
+  max-width: 112rem;
+  margin: 0 auto;
   width: 100%;
   height: 100%;
 

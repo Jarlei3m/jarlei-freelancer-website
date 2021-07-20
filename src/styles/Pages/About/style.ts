@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.main`
-  width: 100vw;
+  /* width: 100vw; */
+  overflow-x: hidden;
   height: 100%;
   position: relative;
 `;

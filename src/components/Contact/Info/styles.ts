@@ -1,22 +1,22 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const InfoContainer = styled.section`
-  margin: 3.8rem 0;
+  margin-top: 7rem;
 
   @media (max-width: 425px) {
-    margin: 8rem 0 3.8rem;
+    margin: 8rem 0 5rem;
   }
 
-  @media (max-width: 375px) {
-    margin: 9rem 0 3.8rem;
-  }
+  /* @media (max-width: 375px) {
+    margin-top: 9rem;
+  } */
 `;
 
 export const InfoContent = styled.div`
   max-width: 90rem;
   padding: 0 4.5rem;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
 
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;

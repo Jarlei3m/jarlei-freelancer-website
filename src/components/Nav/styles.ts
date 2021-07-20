@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100%;
@@ -6,7 +6,7 @@ export const Container = styled.header`
 `;
 
 export const NavBars = styled.nav`
-  position: absolute;
+  position: fixed;
   right: 2.1rem;
   top: 2.1rem;
 

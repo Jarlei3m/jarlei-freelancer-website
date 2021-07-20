@@ -1,22 +1,22 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   height: 35rem;
   width: 100%;
   position: relative;
 
-  background-image: url('map.png');
+  background-image: url("map.png");
   background-size: cover;
   background-position: center;
 
-  margin-top: 5.5rem;
+  margin-top: 9rem;
 
-  @media (max-width: 768px) {
-    margin-top: 7.2rem;
+  @media (max-width: 425px) {
+    margin-top: 4.5rem;
   }
 
   ::after {
-    content: '';
+    content: "";
     top: 0;
     right: 0;
     position: absolute;
